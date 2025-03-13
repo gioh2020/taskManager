@@ -1,0 +1,126 @@
+<div class="contenedor">
+    <div class="administrador-tareas">
+        <header>
+            <h1>Administrador de Tareas</h1>
+        </header>
+
+        <main>
+            <div class="lista-tareas">
+                    <div class="tarea">
+                    <div class="tarea-estado">
+                        <span class="icono-estado pendiente">
+                            <i class="far fa-circle"></i>
+                        </span>
+                    </div>
+                    <div class="tarea-contenido">
+                        <div class="tarea-encabezado">
+                            <h3 class="tarea-titulo">Completar propuesta de proyecto</h3>
+                            <span class="tarea-etiqueta pendiente">Pendiente</span>
+                        </div>
+                        <p class="tarea-descripcion">Redactar la propuesta inicial del proyecto con cronograma y
+                            estimaciones de presupuesto.</p>
+                        <div class="tarea-pie">
+                            <span class="tarea-fecha">15/05/2023</span>
+                            <button class="boton-eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="tarea completada">
+                    <div class="tarea-estado">
+                        <span class="icono-estado completada">
+                            <i class="fas fa-check-circle"></i>
+                        </span>
+                    </div>
+                    <div class="tarea-contenido">
+                        <div class="tarea-encabezado">
+                            <h3 class="tarea-titulo">Investigar competidores</h3>
+                            <span class="tarea-etiqueta completada">Completada</span>
+                        </div>
+                        <p class="tarea-descripcion">Analizar los 5 principales competidores y documentar sus fortalezas
+                            y debilidades.</p>
+                        <div class="tarea-pie">
+                            <span class="tarea-fecha">10/05/2023</span>
+                            <button class="boton-eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tarea">
+                    <div class="tarea-estado">
+                        <span class="icono-estado pendiente">
+                            <i class="far fa-circle"></i>
+                        </span>
+                    </div>
+                    <div class="tarea-contenido">
+                        <div class="tarea-encabezado">
+                            <h3 class="tarea-titulo">Programar reunión de equipo</h3>
+                            <span class="tarea-etiqueta pendiente">Pendiente</span>
+                        </div>
+                        <p class="tarea-descripcion">Organizar una reunión inicial con el equipo de desarrollo para
+                            discutir los requisitos del proyecto.</p>
+                        <div class="tarea-pie">
+                            <span class="tarea-fecha">18/05/2023</span>
+                            <button class="boton-eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="tarea">
+                    <div class="tarea-estado">
+                        <span class="icono-estado pendiente">
+                            <i class="far fa-circle"></i>
+                        </span>
+                    </div>
+                    <div class="tarea-contenido">
+                        <div class="tarea-encabezado">
+                            <h3 class="tarea-titulo">Diseñar interfaz de usuario</h3>
+                            <span class="tarea-etiqueta pendiente">Pendiente</span>
+                        </div>
+                        <p class="tarea-descripcion">Crear wireframes y mockups para la interfaz principal de la
+                            aplicación.</p>
+                        <div class="tarea-pie">
+                            <span class="tarea-fecha">20/05/2023</span>
+                            <button class="boton-eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="formulario-agregar-tarea">
+                <h2>Agregar Nueva Tarea</h2>
+                <form>
+                    <div class="grupo-formulario">
+                        <label for="titulo-tarea">Título</label>
+                        <input type="text" id="titulo-tarea" placeholder="Ingresa el título de la tarea" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="descripcion-tarea">Descripción</label>
+                        <textarea id="descripcion-tarea"
+                            placeholder="Ingresa la descripción de la tarea (opcional)"></textarea>
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <button type="button" class="boton-cancelar">Cancelar</button>
+                        <button type="submit" class="boton-agregar">Agregar Tarea</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <button class="boton-nueva-tarea">
+                <i class="fas fa-plus-circle"></i> Agregar Nueva Tarea
+            </button>
+        </main>
+    </div>
+</div>

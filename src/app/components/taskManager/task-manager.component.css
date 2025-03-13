@@ -1,0 +1,275 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.administrador-tareas {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(to right, #3a7bd5, #6d5b98);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+main {
+    padding: 20px;
+}
+
+.lista-tareas {
+    margin-bottom: 20px;
+}
+
+.tarea {
+    display: flex;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.tarea:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tarea.completada {
+    background-color: #f9f9f9;
+}
+
+.tarea-estado {
+    margin-right: 15px;
+    padding-top: 3px;
+}
+
+.icono-estado {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icono-estado.pendiente {
+    color: #3a7bd5;
+}
+
+.icono-estado.completada {
+    color: #4CAF50;
+}
+
+.tarea-contenido {
+    flex: 1;
+}
+
+.tarea-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.tarea-titulo {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.completada .tarea-titulo {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.tarea-etiqueta {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.tarea-etiqueta.pendiente {
+    background-color: #e3f2fd;
+    color: #1976D2;
+}
+
+.tarea-etiqueta.completada {
+    background-color: #e8f5e9;
+    color: #388E3C;
+}
+
+.tarea-descripcion {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.completada .tarea-descripcion {
+    color: #999;
+}
+
+.tarea-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.tarea-fecha {
+    color: #999;
+}
+
+.boton-eliminar {
+    background: none;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.boton-eliminar:hover {
+    opacity: 1;
+}
+
+.formulario-agregar-tarea {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+
+}
+
+.formulario-agregar-tarea h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.grupo-formulario {
+    margin-bottom: 15px;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.grupo-formulario input,
+.grupo-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.grupo-formulario textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boton-cancelar {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.boton-cancelar:hover {
+    background-color: #e0e0e0;
+}
+
+.boton-agregar {
+    background: linear-gradient(to right, #3a7bd5, #6d5b98);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.boton-agregar:hover {
+    opacity: 0.9;
+}
+
+.boton-nueva-tarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #3a7bd5, #6d5b98);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+
+}
+
+.boton-nueva-tarea:hover {
+    opacity: 0.9;
+}
+
+.boton-nueva-tarea i {
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .tarea-encabezado {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .tarea-etiqueta {
+        margin-top: 5px;
+    }
+    
+    .acciones-formulario {
+        flex-direction: column;
+    }
+    
+    .acciones-formulario button {
+        width: 100%;
+    }
+}
