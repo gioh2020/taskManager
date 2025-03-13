@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #4489e9, #9963f0);
+    padding: 20px;
+}
+.login-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    text-align: center;
+}
+.login-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.input-with-icon input:focus {
+    border-color: #6d5b98;
+}
+
+.input-with-icon input::placeholder {
+    color: #aaa;
+}
+
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #346ab4, #9963f0);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 30px;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(109, 91, 152, 0.3);
+}
+
+.signup-option {
+    margin-top: 20px;
+}
+
+.signup-option p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.signup-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.signup-link:hover {
+    color: #6d5b98;
+}
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .login-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .input-with-icon input {
+        padding: 10px 10px 10px 35px;
+    }
+}
