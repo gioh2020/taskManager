@@ -24,20 +24,19 @@ export class LoginComponent {
     });
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+
+  get form() { return this.loginForm.controls; }
 
   onSubmit(): void {
     this.submitted = true;
 
-    // stop here if form is invalid
+
     if (this.loginForm.invalid) {
       return;
     }
 
-    // TODO: Implement actual login logic here
     console.log('Login successful', this.loginForm.value);
-    
+
 
     // this.router.navigate(['/dashboard']);
   }
@@ -46,7 +45,7 @@ export class LoginComponent {
 
 
   goToSignup(): void {
-    // TODO: Navigate to signup page
+
     console.log('Navigate to signup');
     // this.router.navigate(['/signup']);
   }
