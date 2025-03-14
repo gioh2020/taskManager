@@ -3,22 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponentModule } from './components/auth/auth-component.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
-  imports: [
-    
+  imports: [  
     BrowserModule,
     AppRoutingModule,
-    AuthComponentModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
