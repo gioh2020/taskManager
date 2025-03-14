@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { catchError, delay, tap, timer, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -9,45 +11,74 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent {
 
-
-  loginForm!: FormGroup;
+  accountForm: FormGroup;
   submitted = false;
+  isLoading: boolean = false;
+  errorMessage: string = '';
+  succesful: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+    private router: Router,
+    private authService: AuthService
+  ) { 
+    this.accountForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      passwordValid: ['', Validators.required],
     });
   }
 
-
-  get form() { return this.loginForm.controls; }
+  ngOnInit(): void {
+  }
 
   onSubmit(): void {
     this.submitted = true;
-
-
-    if (this.loginForm.invalid) {
+    this.errorMessage = '';
+    
+    if (this.accountForm.invalid) {
+      this.errorMessage = 'Por favor, completa todos los campos correctamente';
       return;
     }
 
-    console.log('Login successful', this.loginForm.value);
+    const {username, password, passwordValid} = this.accountForm.value;
 
+    if(password !== passwordValid) {
+      this.errorMessage = 'Las contraseñas no coinciden';
+      return;
+    }
 
-    // this.router.navigate(['/dashboard']);
-  }
+    this.isLoading = true;
+    const userData = { username, password };
 
+    this.authService.createAccount(userData).pipe(
+      tap(() => {
+        this.isLoading = false;
+        this.errorMessage = '';
+        this.succesful = true;
+        
+      }),
+      catchError((error) => {
+        this.isLoading = false;
 
+        const errorMsg = error?.error || '';
+        
+        if ( errorMsg === 'El nombre de usuario ya está registrado') {
+          this.errorMessage = 'Este nombre de usuario ya está registrado';
+          this.accountForm.get('username')?.setErrors({ 'duplicated': true });
+        } else if (error.status === 400) {
+          this.errorMessage = error.error?.message || 'Datos inválidos';
+        } else if (error.status === 500) {
+          this.errorMessage = 'Error en el servidor';
+        } else {
+          this.errorMessage = 'Error al crear la cuenta';
+        }
 
+        return throwError(() => error);
+      })
+    ).subscribe((res)=>{
+      this.router.navigate(['/auth/login']);}
 
-  goToSignup(): void {
-
-    console.log('Navigate to signup');
-    // 
+    );
   }
 }

@@ -58,10 +58,25 @@
     border-color: #6d5b98;
 }
 
+.input-with-icon input.is-invalid {
+    border-color: #dc3545;
+    background-color: #fff;
+}
+
 .input-with-icon input::placeholder {
     color: #aaa;
 }
 
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.error-message div {
+    margin-bottom: 3px;
+}
 
 .login-button {
     width: 100%;
@@ -103,6 +118,22 @@
 .signup-link:hover {
     color: #6d5b98;
 }
+
+.alert {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-danger {
+    color: #dc3545;
+    background-color: #ffe0e3;
+    border-color: #dc3545;
+}
+
 @media (max-width: 480px) {
     .login-card {
         padding: 30px 20px;
