@@ -3,6 +3,11 @@
     <h1 class="login-title">Login</h1>
     
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Mensaje de error general -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
       <div class="form-group">
         <label for="username">Username</label>
         <div class="input-with-icon">
@@ -11,37 +16,46 @@
             type="text" 
             id="username" 
             formControlName="username" 
-            placeholder="Type your username"
-            [ngClass]="{'is-invalid': submitted}"
+            placeholder="Ingresa tu nombre de usuario"
+            [ngClass]="{'is-invalid': submitted && loginForm.get('username')?.errors}"
           >
         </div>
-        <div *ngIf="submitted ">
-          <!-- <div *ngIf="f.username.errors.required">Username is required</div> -->
+        <div *ngIf="submitted && loginForm.get('username')?.errors" class="error-message">
+          <div *ngIf="loginForm.get('username')?.errors?.['required']">El nombre de usuario es requerido</div>
+          <div *ngIf="loginForm.get('username')?.errors?.['notFound']">El usuario no existe</div>
         </div>
       </div>
       
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Contraseña</label>
         <div class="input-with-icon">
           <i class="password-icon"></i>
           <input 
             type="password" 
             id="password" 
             formControlName="password" 
-            placeholder="Type your password"
-            [ngClass]="{'is-invalid': submitted }"
+            placeholder="Ingresa tu contraseña"
+            [ngClass]="{'is-invalid': submitted && loginForm.get('password')?.errors}"
           >
         </div>
-        <div *ngIf="submitted " class="error-message">
-          <!-- <div *ngIf="f.password.errors.required">Password is required</div> -->
+        <div *ngIf="submitted && loginForm.get('password')?.errors" class="error-message">
+          <div *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida</div>
+          <div *ngIf="loginForm.get('password')?.errors?.['incorrect']">La contraseña es incorrecta</div>
         </div>
       </div>
- 
-      <button type="submit" class="login-button">LOGIN</button>
+
+      <button type="submit" class="login-button" [disabled]="isLoading || successful">
+        <ng-container *ngIf="!successful; else successMessage">
+          {{ isLoading ? 'Iniciando sesión...' : 'INICIAR SESIÓN' }}
+        </ng-container>
+        <ng-template #successMessage>
+          Login exitoso, redirigiendo...
+        </ng-template>
+      </button>
     </form>
- 
+
     <div class="signup-option">
-      <a href="javascript:void(0)" (click)="goToSignup()" class="signup-link">CREAR USUARIO</a>
+      <a class="signup-link" routerLink="/auth/account">CREAR CUENTA</a>
     </div>
   </div>
 </div>
