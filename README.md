@@ -1,26 +1,4 @@
-## Tecnologías Utilizadas 🚀
 
-### **Frontend**  
-- **Angular 16**  
-- **TypeScript**  
-- **Bootstrap**  
-- **NgRx (para manejo de estado)**  
-- **Vercel (Hosting en producción)**  
-
-### **Backend**  
-- **.NET 6** (API RESTful)  
-- **Entity Framework Core**  
-- **Autenticación con JWT**  
-- **Somee (Hosting en producción)**  
-
-### **Base de Datos**  
-- **MySQL RDS (AWS)**  
-
-### **Motivación Detrás de la Arquitectura**
-- Se eligió **Vercel** y **Somee** para el despliegue porque ofrecen planes gratuitos con límites razonables para proyectos personales.
-- **AWS RDS** se utilizó para la base de datos porque aún se cuenta con la capa gratuita.
-
----
 ## Instalación y Configuración 🔧
 
 ### **Pre-requisitos** 📋
@@ -98,13 +76,6 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 - `POST /api/tasks` → Crear una nueva tarea.
 - `PUT /api/tasks/{id}` → Editar una tarea.
 - `DELETE /api/tasks/{id}` → Eliminar una tarea.
-
-📌 **Todas las rutas protegidas requieren autenticación con JWT.**
-
----
-## **Pruebas y Debugging 🛠️**
-
-Para probar la API, puedes usar **Postman** o **Swagger** en la URL donde se ejecuta el backend.
 
 ---
 ## **¡Listo! 🎉**
