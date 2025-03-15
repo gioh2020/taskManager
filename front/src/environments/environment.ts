@@ -1,5 +1,4 @@
 export const environment = {
-    // baseUrl: 'https://localhost:7274/api/'
+    production: true,
     baseUrl: 'https://www.taskmanagerclient.somee.com/api/'
-  }
-  
+} 
