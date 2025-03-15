@@ -11,6 +11,7 @@ namespace taskManagerClient.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserTask> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,12 @@ namespace taskManagerClient.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username)
                 .IsUnique();
+
+            modelBuilder.Entity<UserTask>()
+                 .HasOne<User>() // Aquí indicamos que UserTask tiene una relación con User
+                 .WithMany()     // No definimos la propiedad de navegación en UserTask
+                 .HasForeignKey(t => t.UserId) // Se usa UserId como clave foránea
+                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
 } 
