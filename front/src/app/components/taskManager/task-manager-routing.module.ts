@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskManagerComponentTable } from './taskManagerTable/task-manager-table.component';
+import { TaskManagerpageComponent } from './pages/task-managerpage.component';
 
 const routes: Routes = [
-  {path: 'taskManager', component: TaskManagerComponentTable}
+  {path: 'taskManager', component: TaskManagerpageComponent}
 ];
 
 @NgModule({
