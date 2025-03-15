@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from '../interface';
 import { Observable, catchError, delay, map, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environments';
+import { environment } from 'src/environments/environment';
 
 interface LoginResponse {
   user: User;
@@ -31,6 +31,7 @@ export class AuthService {
 
   public login(username: string, password: string): Observable<LoginResponse> {
     const url: string = `${this.baseUrl}User/login`;
+    console.log(url)
     return this.http.post<User>(url, { username, password }).pipe(
       delay(1000),
       map(user => {
