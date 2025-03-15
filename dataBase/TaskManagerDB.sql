@@ -16,3 +16,18 @@ CREATE TABLE Users (
     Password VARCHAR(255) NOT NULL,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci; 
+
+
+CREATE TABLE IF NOT EXISTS Tasks (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    Description VARCHAR(500),
+    expirationDate DATETIME NOT NULL,
+    Status VARCHAR(50) NOT NULL DEFAULT 'Pendiente',
+    UserId INT NOT NULL,
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+INSERT INTO Tasks (Title, Description, expirationDate, Status, UserId)
+VALUES ('Tarea 1', 'Descripción de prueba', '2025-03-14 12:00:00', 'Pendiente', 2);
