@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ4iphW+YL0GGsh7cerS+DgAAAAACAAAAAAAQZgAAAAEAACAAAAA2CUlJhJgSGncQn46+q8fSZ7ZVA2F3FjDM2IY2t8vnfAAAAAAOgAAAAAIAACAAAADazrON8mo+U+N6C11gTFBmg6EoXTmLFl5OJK7G3yArvCAAAADJc2O4jBxYWvZ7NXSjCva2Vb+vVxH6jzji8eimFcHJhUAAAADkl2PHYAEKTd4weuf0JQaQFC4tF0uUGVnfzlGPk/JufrvXW2JxgZJQHW0dr18YHnhqkU0GCyCpQ2dqD6wLzT58</EncryptedPassword>
+    <_PublishTargetUrl>ftp://192.52.242.121/www.TaskManagerClient.somee.com/http://taskmanagerclient.somee.com/</_PublishTargetUrl>
+    <History>False|2025-03-15T06:43:16.6414422Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

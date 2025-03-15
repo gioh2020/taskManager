@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zyFOySvY3CpKa+wpw7+XG1rz3aX2o0NrrQlIsNuoBCQ=",
+  "Source": "taskManagerClient",
+  "BasePath": "_content/taskManagerClient",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
