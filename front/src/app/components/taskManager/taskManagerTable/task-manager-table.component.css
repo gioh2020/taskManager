@@ -1,51 +1,59 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:host {
+  }
+  
+  :host {
     display: block;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-}
-
-.contenedor {
+  }
+  
+  .container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.administrador-tareas {
+    margin-bottom: 30px;
+  }
+  
+  .task-manager {
     background-color: white;
     border-radius: 10px;
+    max-height: 421px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-header {
-    background: linear-gradient(to right, #3a7bd5, #6d5b98);
-    color: white;
+    overflow-y: auto;
+  }
+  
+  /* Estilizar scrollbar */
+  .task-manager::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .task-manager::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .task-manager::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3a7bd5, #6d5b98);
+    border-radius: 4px;
+  }
+  
+  .task-manager::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #2d62aa, #574a7a);
+  }
+  
+  main {
     padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 24px;
-    font-weight: 600;
-}
-
-main {
-    padding: 20px;
-}
-
-.lista-tareas {
+  }
+  
+  .task-list {
     margin-bottom: 20px;
-}
-
-.tarea {
+  }
+  
+  .task {
     display: flex;
     padding: 15px;
     border-radius: 8px;
@@ -53,94 +61,74 @@ main {
     margin-bottom: 15px;
     transition: all 0.3s ease;
     background-color: #fff;
-}
-
-.tarea:hover {
+    position: relative;
+  }
+  
+  .task:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.tarea.completada {
-    background-color: #f9f9f9;
-}
-
-.tarea-estado {
+  }
+  
+  .task:hover .floating-delete-button {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .task-status {
     margin-right: 15px;
     padding-top: 3px;
-}
-
-.icono-estado {
+  }
+  
+  .status-icon {
     font-size: 20px;
     cursor: pointer;
-}
-
-.icono-estado.pendiente {
     color: #3a7bd5;
-}
-
-.icono-estado.completada {
-    color: #4CAF50;
-}
-
-.tarea-contenido {
+  }
+  
+  .task-content {
     flex: 1;
-}
-
-.tarea-encabezado {
+    width: 97%;
+  }
+  
+  .task-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
-}
-
-.tarea-titulo {
+  }
+  
+  .task-title {
     font-size: 16px;
     font-weight: 500;
-}
-
-.completada .tarea-titulo {
-    text-decoration: line-through;
-    color: #888;
-}
-
-.tarea-etiqueta {
+  }
+  
+  .task-tag {
     font-size: 12px;
     padding: 3px 8px;
     border-radius: 12px;
     font-weight: 500;
-}
-
-.tarea-etiqueta.pendiente {
     background-color: #e3f2fd;
-    color: #1976D2;
-}
-
-.tarea-etiqueta.completada {
-    background-color: #e8f5e9;
-    color: #388E3C;
-}
-
-.tarea-descripcion {
+    color: #1976d2;
+  }
+  
+  .task-description {
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
-}
-
-.completada .tarea-descripcion {
-    color: #999;
-}
-
-.tarea-pie {
+    word-wrap: break-word;
+  }
+  
+  .task-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-}
-
-.tarea-fecha {
+  }
+  
+  .task-date {
     color: #999;
-}
-
-.boton-eliminar {
+  }
+  
+  .delete-button {
     background: none;
     border: none;
     color: #f44336;
@@ -148,128 +136,52 @@ main {
     font-size: 14px;
     opacity: 0.7;
     transition: opacity 0.3s;
-}
-
-.boton-eliminar:hover {
+  }
+  
+  .delete-button:hover {
     opacity: 1;
-}
-
-.formulario-agregar-tarea {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-
-
-}
-
-.formulario-agregar-tarea h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.grupo-formulario {
-    margin-bottom: 15px;
-}
-
-.grupo-formulario label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #555;
-}
-
-.grupo-formulario input,
-.grupo-formulario textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    font-family: inherit;
-}
-
-.grupo-formulario textarea {
-    min-height: 80px;
-    resize: vertical;
-}
-
-.acciones-formulario {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.boton-cancelar {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    color: #666;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.boton-cancelar:hover {
-    background-color: #e0e0e0;
-}
-
-.boton-agregar {
-    background: linear-gradient(to right, #3a7bd5, #6d5b98);
+  }
+  
+  .floating-delete-button {
+    position: absolute;
+    bottom: -10px;
+    right: -3px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f44336;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    font-size: 14px;
-    transition: opacity 0.3s;
-}
-
-.boton-agregar:hover {
-    opacity: 0.9;
-}
-
-.boton-nueva-tarea {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(to right, #3a7bd5, #6d5b98);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-
-
-}
-
-.boton-nueva-tarea:hover {
-    opacity: 0.9;
-}
-
-.boton-nueva-tarea i {
-    margin-right: 8px;
-}
-
-@media (max-width: 600px) {
-    .tarea-encabezado {
-        flex-direction: column;
-        align-items: flex-start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    transform: translateY(-5px);
+    z-index: 100;
+  }
+  
+  .floating-delete-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 600px) {
+    .task-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .task-tag {
+      margin-top: 5px;
     }
     
-    .tarea-etiqueta {
-        margin-top: 5px;
+    .floating-delete-button {
+      opacity: 1;
+      transform: translateY(0);
     }
-    
-    .acciones-formulario {
-        flex-direction: column;
-    }
-    
-    .acciones-formulario button {
-        width: 100%;
-    }
-}
+  }
+  
