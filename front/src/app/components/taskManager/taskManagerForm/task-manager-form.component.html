@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="task-manager">
+        <header class="header">
+            <h1>Administrador de Tareas</h1>
+        </header>
+
+        <main class="main">
+            <div class="add-task-form">
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}
+                </div>
+
+                <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="title">Título</label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            formControlName="title"
+                            placeholder="Ingresa el título de la tarea"
+                            [ngClass]="{'is-invalid': submitted && taskForm.get('title')?.errors}"
+                        >
+                        <div *ngIf="submitted && taskForm.get('title')?.errors" class="error-message">
+                            <div *ngIf="taskForm.get('title')?.errors?.['required']">El título es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea 
+                            id="description" 
+                            formControlName="description"
+                            placeholder="Ingresa la descripción de la tarea"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-group-half">
+                            <label for="dueDate">Fecha de vencimiento</label>
+                            <input 
+                                type="datetime-local" 
+                                id="dueDate"
+                                formControlName="expirationDate"
+                                [ngClass]="{'is-invalid': submitted && taskForm.get('expirationDate')?.errors}"
+                            >
+                            <div *ngIf="submitted && taskForm.get('expirationDate')?.errors" class="error-message">
+                                <div *ngIf="taskForm.get('expirationDate')?.errors?.['required']">La fecha de vencimiento es requerida</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-half">
+                            <label for="status">Estado</label>
+                            <select 
+                                id="status"
+                                formControlName="status"
+                                [ngClass]="{'is-invalid': submitted && taskForm.get('status')?.errors}"
+                            >
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Completada">Completada</option>
+                            </select>
+                            <div *ngIf="submitted && taskForm.get('status')?.errors" class="error-message">
+                                <div *ngIf="taskForm.get('status')?.errors?.['required']">El estado es requerido</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="logout-button" (click)="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                        <button type="submit" class="add-button" [disabled]="isLoading || successful">
+                            <ng-container *ngIf="!successful; else successMessage">
+                                {{ isLoading ? 'Creando tarea...' : 'Agregar Tarea' }}
+                            </ng-container>
+                            <ng-template #successMessage>
+                                Tarea creada exitosamente...
+                            </ng-template>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
