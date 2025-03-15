@@ -211,6 +211,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
+    justify-content: center;
   }
   
   .logout-button {
