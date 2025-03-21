@@ -28,6 +28,3 @@ CREATE TABLE IF NOT EXISTS Tasks (
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
 );
-
-INSERT INTO Tasks (Title, Description, expirationDate, Status, UserId)
-VALUES ('Tarea 1', 'Descripción de prueba', '2025-03-14 12:00:00', 'Pendiente', 2);
